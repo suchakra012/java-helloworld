@@ -1,7 +1,6 @@
-FROM java:8-jre
-COPY * /opt/app/
-WORKDIR /opt/app
-EXPOSE 8080
-RUN bash -c 'java HelloWorldApp'
-ENTRYPOINT ["tailf", "/var/log/lastlog"]
+FROM java:8  
+COPY . /var/www/java  
+WORKDIR /var/www/java  
+RUN javac Hello.java  
+CMD ["java", "Hello"]
 
